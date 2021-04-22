@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Executor;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Executor
+namespace GUI
 {
     public partial class Form1 : Form
     {
@@ -17,5 +18,11 @@ namespace Executor
             InitializeComponent();
         }
 
+        private void btnReplace_Click(object sender, EventArgs e)
+        {
+            string source = this.richTextBox1.Text;
+            var result = new Link_NoOpenerReplacer().Replace(source);
+            this.richTextBox2.Text = result;
+        }
     }
 }
